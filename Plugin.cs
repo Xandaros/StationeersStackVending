@@ -47,18 +47,13 @@ namespace StationeersStackVending
         private void Awake()
         {
             try {
-                _h = new Harmony("io.inp.stationeers.stackvending");
+                _h = new Harmony(pluginGuid);
                 _h.PatchAll();
                 Log("Patch succeeded");
             } catch (Exception e) {
                 Log("Path failed");
                 Log(e.ToString());
             }
-        }
-
-        private void OnDestroy()
-        {
-            _h.UnpatchSelf();
         }
     }
 }
